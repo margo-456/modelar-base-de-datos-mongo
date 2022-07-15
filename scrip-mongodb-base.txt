@@ -1,0 +1,306 @@
+MongoDB shell version v5.0.9
+connecting to mongodb127.0.0.127017compressors=disabled&gssapiServiceName=mongodb
+Implicit session session { id  UUID(90cacf4d-e02a-47d1-a955-bab18528ef96) }
+MongoDB server version 5.0.9
+================
+Warning the mongo shell has been superseded by mongosh,
+which delivers improved usability and compatibility.The mongo shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+httpsdocs.mongodb.commongodb-shellinstall
+================
+---
+The server generated these startup warnings when booting
+        2022-07-14T165457.623-0500 Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command db.disableFreeMonitoring()
+---
+ show dbs
+admin            0.000GB
+config           0.000GB
+dbJohanaSalazar  0.000GB
+dbNewPerson      0.000GB
+inspectionsjs    0.009GB
+local            0.000GB
+miscelanea       0.031GB
+ use dbproyect
+switched to db dbproyect
+ var mystudent=[
+... {
+... estudianteid1,
+... nombre Gema,
+... apellidoCastro,
+... sexo femenino,
+... edad3,
+... aula{
+... numero 1,
+... maestro Jose Zapata },
+... login{
+... usuario avatar}
+... }
+... ]
+ db.estudiante.insert(mystudent);
+BulkWriteResult({
+        writeErrors  [ ],
+        writeConcernErrors  [ ],
+        nInserted  1,
+        nUpserted  0,
+        nMatched  0,
+        nModified  0,
+        nRemoved  0,
+        upserted  [ ]
+})
+ db.estudiante.insertOne(
+...   {
+...     estudianteid1,
+...     nombre Gema,
+...     apellidoCastro,
+...     sexo femenino,
+...     edad3,
+...     aula[{
+...     numero 1,
+...     maestro Jose Zapata }],
+...     login[{
+...      usuario avatar}
+...       }]
+...
+... }
+uncaught exception SyntaxError missing ] after element list 
+@(shell)136
+ db.estudiante.insertOne(
+...   {
+...     estudianteid1,
+...     nombre Gema,
+...     apellidoCastro,
+...     sexo femenino,
+...     edad3,
+...     aula[{
+...     numero 1,
+...     maestro Jose Zapata }],
+...     login[{
+...      usuario avatar}]
+... }
+... )
+{
+        acknowledged  true,
+        insertedId  ObjectId(62d0b4753f8b00abcef8b292)
+}
+
+
+ db.estudiante.insertOne(
+...   {
+...     estudianteid2,
+...     nombre Cristel,
+...     apellidoTayan,
+...     sexo femenino,
+...     edad3,
+...     aula[{
+...     numero 1,
+...     maestro Jose Zapata }],
+...     login[{
+...      usuario avatar}]
+... }
+... )
+{
+        acknowledged  true,
+        insertedId  ObjectId(62d0b4e73f8b00abcef8b293)
+}
+ db.estudiante.find().pretty()
+{
+        _id  ObjectId(62d0b17b3f8b00abcef8b291),
+        estudianteid  1,
+        nombre  Gema,
+        apellido  Castro,
+        sexo  femenino,
+        edad  3,
+        aula  {
+                numero  1,
+                maestro  Jose Zapata
+        },
+        login  {
+                usuario  avatar
+        }
+}
+{
+        _id  ObjectId(62d0b4753f8b00abcef8b292),
+        estudianteid  1,
+        nombre  Gema,
+        apellido  Castro,
+        sexo  femenino,
+        edad  3,
+        aula  [
+                {
+                        numero  1,
+                        maestro  Jose Zapata
+                }
+        ],
+        login  [
+                {
+                        usuario  avatar
+                }
+        ]
+}
+{
+        _id  ObjectId(62d0b4e73f8b00abcef8b293),
+        estudianteid  2,
+        nombre  Cristel,
+        apellido  Tayan,
+        sexo  femenino,
+        edad  3,
+        aula  [
+                {
+                        numero  1,
+                        maestro  Jose Zapata
+                }
+        ],
+        login  [
+                {
+                        usuario  avatar
+                }
+        ]
+}
+ db.maestro.insertOne(
+...   {
+... nombre Jose ,
+... apellidoZapata ,
+... cedula2345674567 ,
+... edad 32,
+...
+... login [{
+... id 1,
+... usuario josezapata ,
+... clave 1234}]
+... }
+... )
+uncaught exception ReferenceError Jose is not defined 
+@(shell)31
+ db.maestro.insertOne(
+...   {
+... nombre Jose ,
+... apellido Zapata ,
+... cedula 2345674567 ,
+... edad 32,
+...
+... login [{
+... id 1,
+... usuario josezapata ,
+... clave 1234}]
+... }
+... )
+{
+        acknowledged  true,
+        insertedId  ObjectId(62d0b6a43f8b00abcef8b294)
+}
+
+ db.maestro.insertOne(
+...   {
+... nombre Jenny ,
+... apellido Castro ,
+... cedula 23111111111 ,
+... edad 27,
+...
+... login [{
+... id 1,
+... usuario jennycastro ,
+... clave 1234}]
+... }
+... )
+{
+        acknowledged  true,
+        insertedId  ObjectId(62d0b7033f8b00abcef8b295)
+}
+
+ db.estudiante.find().pretty()
+{
+        _id  ObjectId(62d0b17b3f8b00abcef8b291),
+        estudianteid  1,
+        nombre  Gema,
+        apellido  Castro,
+        sexo  femenino,
+        edad  3,
+        aula  {
+                numero  1,
+                maestro  Jose Zapata
+        },
+        login  {
+                usuario  avatar
+        }
+}
+{
+        _id  ObjectId(62d0b4753f8b00abcef8b292),
+        estudianteid  1,
+        nombre  Gema,
+        apellido  Castro,
+        sexo  femenino,
+        edad  3,
+        aula  [
+                {
+                        numero  1,
+                        maestro  Jose Zapata
+                }
+        ],
+        login  [
+                {
+                        usuario  avatar
+                }
+        ]
+}
+{
+        _id  ObjectId(62d0b4e73f8b00abcef8b293),
+        estudianteid  2,
+        nombre  Cristel,
+        apellido  Tayan,
+        sexo  femenino,
+        edad  3,
+        aula  [
+                {
+                        numero  1,
+                        maestro  Jose Zapata
+                }
+        ],
+        login  [
+                {
+                        usuario  avatar
+                }
+        ]
+}
+
+ db.maestro.find().pretty()
+{
+        _id  ObjectId(62d0b6a43f8b00abcef8b294),
+        nombre  Jose,
+        apellido  Zapata,
+        cedula  2345674567,
+        edad  32,
+        login  [
+                {
+                        id  1,
+                        usuario  josezapata,
+                        clave  1234
+                }
+        ]
+}
+{
+        _id  ObjectId(62d0b7033f8b00abcef8b295),
+        nombre  Jenny,
+        apellido  Castro,
+        cedula  23111111111,
+        edad  27,
+        login  [
+                {
+                        id  1,
+                        usuario  jennycastro,
+                        clave  1234
+                }
+        ]
+}
+
