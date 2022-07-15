@@ -1,0 +1,51 @@
+
+db.estudiante.insertOne(
+  {
+    estudianteid:1,
+    nombre: "Gema",
+    apellido:"Castro",
+    sexo: "femenino",
+    edad:3,
+    aula:{
+    numero: 1,
+    maestro: "Jose Zapata" },
+    login:{
+     usuario: "avatar"}
+... }
+ ]
+
+
+
+db.estudiante.insertOne(
+  {
+    estudianteid:2,
+    nombre: "Cristel",
+    apellido:"Tayan",
+    sexo: "femenino",
+    edad:3,
+    aula:[{
+    numero: 1,
+    maestro: "Jose Zapata" }],
+    login:[{
+     usuario: "avatar"}]
+}
+)
+
+
+db.maestro.insertOne(
+  {
+mestroid:1
+nombre: "Jenny" ,
+apellido: "Castro" ,
+cedula: 23111111111 ,
+edad: 27,
+
+login: [{
+id: 1,
+usuario: "jennycastro" ,
+clave: 1234}]
+}
+)
+
+
+
